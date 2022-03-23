@@ -1,0 +1,104 @@
+{
+   "swagger":"2.0",
+   "info":{
+      "version":"V1.0.0",
+      "title":"IOT Documentation",
+      "description":"Swagger for IOT",
+      "termsOfService":"http://iot.com/terms/"
+   },
+   "basePath":"/",
+   "tags":[
+      {
+         "name":"Node Mcu",
+         "description":"API for node mcu"
+      }
+   ],
+   "schemes":[
+      "http"
+   ],
+   "consumes":[
+      "application/json"
+   ],
+   "produces":[
+      "application/json"
+   ],
+   "paths":{
+      "/nodemcu/senddatatonodemcu":{
+         "post":{
+            "tags":[
+               "Node Mcu"
+            ],
+            "description":"Send data to node mcu",
+            "operationId":"nodemcu/senddatatonodemcu(for the URL)",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"Parameters of send data to node mcu",
+                  "in":"body",
+                  "description":"Send data to node mcu",
+                  "required":true,
+                  "schema":{
+                     "$ref":"#/definitions/sendDataOfNodeMcu"
+                  }
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Response of send data to node mcu",
+                  "schema":{
+                     "$ref":"#/definitions/sendDataOfNodeMcu"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "definitions":{
+      "sendDataOfNodeMcu":{
+         "type": "object",
+         "properties":{
+            "pinHL":{
+               "type":"array",
+               "items":{
+                  "type": "object",
+                  "properties":{
+                     "pinNumber":{
+                        "required":true,
+                        "type":"integer",
+                        "example":2
+                        },
+                        "pinOnOff":{
+                           "required":true,
+                           "type":"integer",
+                           "example":1
+                           }
+                     }
+               },
+               "description":"pin high and low array of object"
+            },
+            "startTime":{
+               "required":false,
+               "type":"string",
+               "example":"22:22"
+            },
+            "endTime":{
+                "required":false,
+                "type":"string",
+                "example":"10:67"
+             },
+             "timeInterval":{
+                "required":false,
+                "type":"integer",
+                "example":92
+             },
+             "currentDateTime":{
+               "required":false,
+               "type":"date",
+               "example":"2018-02-02T20:21:33"
+            }
+         }
+      }
+   }
+}

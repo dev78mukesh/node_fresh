@@ -1,0 +1,8 @@
+/node_modules
+/http-server
+/node
+/.idea
+/server/public
+/.env
+/dump
+
